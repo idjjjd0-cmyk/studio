@@ -103,7 +103,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 
 /* ---------- кейсы ---------- */
 .cases { margin-top: 34px; display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(28px, 3vw, 44px) clamp(10px, 1vw, 14px); }
-.tile { display: block; width: 100%; text-align: left; cursor: pointer; }
+.tile { display: block; align-self: start; width: 100%; text-align: left; cursor: pointer; }
 .tile .pic { position: relative; aspect-ratio: 1 / 1; border-radius: 10px; overflow: hidden; background: var(--c, #111); }
 .tile .pic img { position: absolute; transition: transform 800ms var(--ease-out); }
 .tile .pic .bg { inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: top left; }
@@ -124,7 +124,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   .tile:hover .pic.trio img { transform: translateY(-4%); }
   .tile:hover .open i { transform: translate(3px, -3px); }
 }
-.tile.cta { display: flex; align-items: flex-end; min-height: 100%; padding-bottom: 8px; }
+.tile.cta { display: flex; align-self: stretch; align-items: flex-end; min-height: 100%; padding-bottom: 8px; }
 .tile.cta span { font-size: clamp(30px, 3vw, 46px); line-height: 0.95; font-weight: 700; letter-spacing: -0.05em; text-transform: uppercase; transition: transform 300ms var(--ease-out); }
 @media (hover: hover) and (pointer: fine) { .tile.cta:hover span { transform: translateX(8px); } }
 
@@ -551,7 +551,7 @@ html, body { max-width: 100%; overflow-x: clip; }
 .cs-arrow { position: absolute; left: 34%; top: 40px; width: min(24vw, 300px); height: 200px; fill: none; stroke: #cfcfcf; stroke-width: 2; pointer-events: none; }
 .cs-arrow path { stroke-dasharray: 700; stroke-dashoffset: 700; transition: stroke-dashoffset 1500ms ease 300ms; }
 .cs-arrow.in path { stroke-dashoffset: 0; }
-.cs-shot { border-radius: 16px; width: 100%; box-shadow: 0 40px 70px -40px rgba(0,0,0,.45); }
+.cs-shot { width: 100%; }
 /* экраны бота */
 .cs-bot { text-align: left; }
 .cs-botgrid { margin-top: 34px; display: grid; grid-template-columns: repeat(var(--cols, 3), 1fr); align-items: end; gap: clamp(10px, 2vw, 28px); }
@@ -783,7 +783,7 @@ html, body { max-width: 100%; overflow-x: clip; }
     <nav class="ax-nav" aria-label="Главное меню">
       <a class="ax-logo" href="#home"><span class="ax-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span data-brand-short>Studio</span></a>
       <div class="ax-links">
-        <a href="#cases" class="on">Кейсы</a><a href="#services">Услуги</a><a href="#price">Цены</a><a href="#contacts">Контакты</a>
+        <a href="#cases">Кейсы</a><a href="#services">Услуги</a><a href="#price">Цены</a><a href="#contacts">Контакты</a>
       </div>
       <a class="ax-pill tgl" href="#" target="_blank" rel="noopener">Бесплатный аудит</a>
     </nav>
@@ -905,8 +905,8 @@ html, body { max-width: 100%; overflow-x: clip; }
 </section>
 
 <section class="contact" id="contacts">
-  <div class="side l"><div class="in-float"><div class="phone"><img loading="lazy" decoding="async" src="img/web/forma-money-m.jpg" alt="Приложение «Форма»: деньги тренера за месяц"></div></div></div>
-  <div class="side r"><div class="in-float"><div class="phone"><img loading="lazy" decoding="async" src="img/web/rsm-product.jpg" alt="Карточка сумки в мини-приложении Rsm Collection"></div></div></div>
+  <div class="side l"><div class="in-float"><div class="phone"><img loading="lazy" decoding="async" src="img/web/royal-dash-m.jpg" alt="CRM владельца в тёмной теме: выручка и записи"></div></div></div>
+  <div class="side r"><div class="in-float"><div class="phone"><img loading="lazy" decoding="async" src="img/web/royal-site-m.jpg" alt="Сайт барбершопа The Royal Club на телефоне"></div></div></div>
   <div class="wrap">
     <p class="bracket blur">[<b>КОНТАКТЫ</b>]</p>
     <h2 class="spread" id="spread">Напишите мне</h2>
@@ -924,9 +924,9 @@ html, body { max-width: 100%; overflow-x: clip; }
 <div class="thanks" id="thanks" role="dialog" aria-modal="true" aria-labelledby="thanksT" hidden>
   <div class="thanks-card">
     <div class="thanks-ic" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
-    <h3 id="thanksT">Спасибо! Заявка почти ушла</h3>
-    <p>Открываю Telegram — нажмите «Отправить» в&nbsp;чате. Отвечу в&nbsp;течение дня и&nbsp;пришлю разбор в&nbsp;течение суток.</p>
-    <a class="thanks-go tgl" id="thanksGo" href="#" target="_blank" rel="noopener">Открыть Telegram</a>
+    <h3 id="thanksT">Спасибо за заявку!</h3>
+    <p>Осталось отправить её мне: нажмите кнопку ниже, откроется Telegram с&nbsp;готовым сообщением. Отвечу в&nbsp;течение дня и&nbsp;пришлю разбор в&nbsp;течение суток.</p>
+    <a class="thanks-go tgl" id="thanksGo" href="#" target="_blank" rel="noopener">Отправить в Telegram</a>
     <button type="button" class="thanks-x" id="thanksX">Закрыть</button>
   </div>
 </div>
@@ -1202,12 +1202,12 @@ $('#auditForm').addEventListener('submit', e => {
   sentAt = Date.now();
   const text = 'Здравствуйте! Хочу бесплатный аудит: ' + link;
   const url = 'https://t.me/' + BRAND.tg + '?text=' + encodeURIComponent(text);
-  window.open(url, '_blank', 'noopener');
-  /* экран «спасибо»: если браузер не открыл Telegram, есть кнопка */
-  $('#thanksGo').href = url; $('#thanks').hidden = false; $('#thanksX').focus();
+  /* сначала экран «спасибо», Telegram открывается по кнопке: на телефоне он иначе перекрывает окно */
+  $('#thanksGo').href = url; $('#thanks').hidden = false; $('#thanksGo').focus();
 });
 const closeThanks = () => { $('#thanks').hidden = true; };
 $('#thanksX').addEventListener('click', closeThanks);
+$('#thanksGo').addEventListener('click', () => setTimeout(closeThanks, 400));
 $('#thanks').addEventListener('click', e => { if (e.target.id === 'thanks') closeThanks(); });
 addEventListener('keydown', e => { if (e.key === 'Escape' && !$('#thanks').hidden) closeThanks(); });
 /* липкая кнопка на телефоне: видна после первого экрана, прячется у формы и контактов */
@@ -1651,7 +1651,7 @@ const STAGE = { steps: ['Исследование', 'Обсуждение', 'П�
 const CASE = {
   rsm: { kind: 'Настоящий проект', nochart: true, tags: ['Мини-приложение', 'Каталог', 'Telegram'], h: 'Rsm Collection: магазин брендовых сумок в Telegram',
     lead: 'Мой собственный товарный бизнес. Покупатель смотрит каталог и пишет менеджеру, не выходя из Telegram.', did: 'сайт, мини-приложение и бот для живого магазина',
-    lap: 'img/web/mockups/rsm-laptop.jpg', ph: 'img/web/mockups/rsm-phone.jpg', hero: 'img/web/mockups/rsm-phone.jpg', shot: 'img/web/mockups/rsm-phones-v3.jpg', tall: true, demo: 'https://t.me/RsmCollectionbot', demoLabel: 'Открыть в Telegram',
+    lap: 'img/web/mockups/rsm-laptop.jpg', ph: 'img/web/mockups/res-rsm.jpg', hero: 'img/web/mockups/rsm-phone.jpg', shot: 'img/web/mockups/rsm-phones-v3.jpg', tall: true, demo: 'https://t.me/RsmCollectionbot', demoLabel: 'Открыть в Telegram',
     before: ['Лоты теряются в ленте канала', 'Каждый вопрос в личку', 'Сложно найти нужный бренд'],
     after: ['Каталог с поиском и фильтрами', 'Избранное и заявка менеджеру', 'Раздел «Продать» для выкупа'],
     steps: ['Смотрим, как покупают', 'Определяем разделы', 'Собираем каталог', 'Мини-приложение и бот', 'Запускаем в канале'],
@@ -1660,7 +1660,7 @@ const CASE = {
     chart: { unit: ['просмотр', 'просмотра', 'просмотров'], vals: [3, 2, 4, 3, 5, 4, 6, 5, 4, 6, 7, 6] } },
   royal: { kind: 'Концепт-проект', tags: ['Сайт', 'Онлайн-запись', 'Бот'], h: 'The Royal Club: сайт и запись для барбершопа',
     lead: 'Показываем, как барбершоп перестаёт терять клиентов между звонком и креслом.', did: 'сайт, онлайн-запись, бот-напоминалка и кабинет владельца',
-    lap: 'img/web/mockups/royal-laptop.jpg', ph: 'img/web/mockups/royal-phone-v2.jpg', shot: 'img/web/shots/royal-desktop.jpg', demo: 'demo/royal/index.html',
+    lap: 'img/web/mockups/royal-laptop.jpg', ph: 'img/web/mockups/res-royal.jpg', shot: 'img/web/mockups/after-royal.jpg', demo: 'demo/royal/index.html',
     bot: [['img/web/mockups/royal-bot-hand.jpg', 'Выбирает время и сразу получает подтверждение']],
     before: ['Запись только по телефону', 'Клиенты забывают о визите', 'Записи и деньги в тетрадке'],
     after: ['Запись в 3 шага в любое время', 'Бот сам напоминает о визите', 'Выручка и записи в телефоне'],
@@ -1670,7 +1670,7 @@ const CASE = {
     chart: { unit: ['запись', 'записи', 'записей'], vals: [2, 3, 2, 4, 3, 5, 4, 6, 5, 7, 6, 8] } },
   strela: { kind: 'Концепт-проект', tags: ['CRM', 'Аналитика', 'ИИ-ассистент'], h: 'STRELA: CRM для грузоперевозок с голосовым ассистентом',
     lead: 'Машины, деньги и документы в одном окне вместо десятка таблиц.', did: 'CRM на 12 разделов, карта рейсов и голосовой ИИ-ассистент',
-    lap: 'img/web/mockups/strela-laptop-v3.jpg', ph: 'img/web/mockups/strela-phone.jpg', shot: 'img/web/shots/strela-desktop.jpg', demo: 'demo/strela/index.html',
+    lap: 'img/web/mockups/strela-laptop-v3.jpg', ph: 'img/web/mockups/res-strela.jpg', shot: 'img/web/mockups/after-strela.jpg', demo: 'demo/strela/index.html',
     before: ['Данные в разных таблицах', 'Просрочки всплывают поздно', 'Чтобы узнать цифру, надо звонить'],
     after: ['Вся компания на одном экране', 'Напоминания о документах', 'Спросил у ассистента голосом'],
     steps: ['Разбираем рейсы и деньги', 'Выбираем главные показатели', 'Собираем экран «Обзор»', 'Разделы, карта, ассистент', 'Переносим данные и обучаем'],
@@ -1679,7 +1679,7 @@ const CASE = {
     chart: { unit: ['рейс', 'рейса', 'рейсов'], vals: [3, 4, 3, 5, 6, 4, 7, 6, 8, 7, 9, 10] } },
   forma: { kind: 'Концепт-проект', tags: ['Мини-приложение', 'Бот', 'Аналитика'], h: 'Форма: приложение для фитнес-тренеров в Telegram',
     lead: 'Тренер видит, кому продлить абонемент, вместо того чтобы держать всё в голове.', did: 'мини-приложение, бот с напоминаниями и сервер',
-    lap: 'img/web/mockups/forma-laptop-v3.jpg', ph: 'img/web/mockups/forma-phone-v3.jpg', shot: 'img/web/forma-d.jpg', demo: 'demo/forma/index.html?theme=light',
+    lap: 'img/web/mockups/forma-laptop-v3.jpg', ph: 'img/web/mockups/res-forma.jpg', shot: 'img/web/mockups/after-forma.jpg', demo: 'demo/forma/index.html?theme=light',
     before: ['Клиент ходит по закончившемуся абонементу', 'Забывают продлить', 'Клиенты пропадают молча'],
     after: ['Экран «Сегодня»: кто придёт', 'Программы и прогресс по весам', 'Клиент отвечает боту «Приду»'],
     steps: ['Разбираем день тренера', 'Решаем, что считать автоматически', 'Собираем экран «Сегодня»', 'Приложение, бот, сервер', 'Проверяем автотестами'],
@@ -1688,7 +1688,7 @@ const CASE = {
     chart: { unit: ['тренировка', 'тренировки', 'тренировок'], vals: [1, 2, 2, 3, 2, 4, 3, 4, 5, 4, 6, 5] } },
   dash: { kind: 'Концепт-проект', tags: ['Дашборд', 'Мини-приложение', 'Аналитика'], h: 'Дашборд владельца: бизнес в телефоне',
     lead: 'Владелец барбершопа открывает Telegram и за минуту видит выручку, записи и клиентов.', did: 'мини-приложение с графиками и отчётами',
-    lap: 'img/web/mockups/dash-ipad-v3.jpg', ph: 'img/web/mockups/dash-phone.jpg', shot: 'img/web/royal-dash-d.jpg', demo: 'demo/royal-crm/index.html?demo=1',
+    lap: 'img/web/mockups/dash-ipad-v3.jpg', ph: 'img/web/mockups/res-dash.jpg', shot: 'img/web/mockups/after-dash.jpg', tall: true, demo: 'demo/royal-crm/index.html?demo=1',
     before: ['Отчёт надо собирать вручную', 'Цифры видны только в салоне', 'Непонятно, что проседает'],
     after: ['Главные цифры на одном экране', 'Открывается прямо в Telegram', 'Сравнение с прошлым периодом'],
     steps: ['Выбираем важные цифры', 'Решаем, как их показать', 'Собираем экран «Обзор»', 'Графики и отчёты', 'Подключаем к записи'],
