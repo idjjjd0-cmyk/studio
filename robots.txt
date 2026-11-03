@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
 
-# После выбора адреса сайта добавить строку:
-# Sitemap: https://АДРЕС-САЙТА/sitemap.xml
+Sitemap: https://idjjjd0-cmyk.github.io/studio/sitemap.xml
