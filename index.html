@@ -907,8 +907,8 @@ html, body { max-width: 100%; overflow-x: clip; }
 </section>
 
 <section class="contact" id="contacts">
-  <div class="side l"><div class="in-float"><img class="fmock" loading="lazy" decoding="async" src="img/web/mockups/float-crm.webp" alt="CRM владельца в тёмной теме: выручка и записи"></div></div>
-  <div class="side r"><div class="in-float"><img class="fmock" loading="lazy" decoding="async" src="img/web/mockups/float-site.webp" alt="Сайт барбершопа The Royal Club на телефоне"></div></div>
+  <div class="side l"><div class="in-float"><img class="fmock" loading="lazy" decoding="async" src="img/web/mockups/float-crm.webp?v=1104c" alt="CRM владельца в тёмной теме: выручка и записи"></div></div>
+  <div class="side r"><div class="in-float"><img class="fmock" loading="lazy" decoding="async" src="img/web/mockups/float-site.webp?v=1104c" alt="Сайт барбершопа The Royal Club на телефоне"></div></div>
   <div class="wrap">
     <p class="bracket blur">[<b>КОНТАКТЫ</b>]</p>
     <h2 class="spread" id="spread">Напишите мне</h2>
@@ -979,23 +979,23 @@ const ART = { rsm: 'sphere', royal: 'rings', strela: 'wave', forma: 'helix', das
 
 const CASES = [
   { id: 'rsm', title: 'Rsm Collection', text: 'Настоящий проект: мой магазин брендовых сумок и мини-приложение для него в Telegram', c: '#e4e1dc',
-    trio: ['img/web/rsm-catalog.jpg', 'img/web/rsm-product.jpg', 'img/web/rsm-sell.jpg'], cardBg: 'img/web/bg/red.jpg', card: 'img/web/mockups/card-rsm.jpg', href: 'https://t.me/RsmCollectionbot' },
+    trio: ['img/web/rsm-catalog.jpg', 'img/web/rsm-product.jpg', 'img/web/rsm-sell.jpg'], cardBg: 'img/web/bg/red.jpg', card: 'img/web/mockups/card-rsm.jpg?v=1104c', href: 'https://t.me/RsmCollectionbot' },
   { id: 'royal', title: 'The Royal Club', text: 'Барбершоп: сайт, онлайн-запись, бот и дашборд владельца', c: '#121a12',
-    bg: 'img/web/shots/royal-desktop.jpg', ph: 'img/web/royal-dash-m.jpg', cardBg: 'img/web/bg/dots.jpg', cardPh: 'img/web/royal-site-m.jpg', card: 'img/web/mockups/card-royal.jpg', href: 'demo/royal/index.html' },
+    bg: 'img/web/shots/royal-desktop.jpg', ph: 'img/web/royal-dash-m.jpg', cardBg: 'img/web/bg/dots.jpg', cardPh: 'img/web/royal-site-m.jpg', card: 'img/web/mockups/card-royal.jpg?v=1104c', href: 'demo/royal/index.html' },
   { id: 'strela', title: 'STRELA', text: 'CRM для грузоперевозок с голосовым ИИ-ассистентом', c: '#0f1913',
-    bg: 'img/web/shots/strela-desktop.jpg', ph: 'img/web/shots/strela-phone.jpg', card: 'img/web/mockups/card-strela.jpg', href: 'demo/strela/index.html' },
+    bg: 'img/web/shots/strela-desktop.jpg', ph: 'img/web/shots/strela-phone.jpg', card: 'img/web/mockups/card-strela.jpg?v=1104c', href: 'demo/strela/index.html' },
   { id: 'forma', title: 'Форма', text: 'Мини-приложение в Telegram для фитнес-тренеров: клиенты, абонементы, деньги', c: '#0d1620',
-    bg: 'img/web/forma-d.jpg', ph: 'img/web/forma-today-m.jpg', card: 'img/web/mockups/card-forma.jpg', href: 'demo/forma/index.html?theme=light' },
+    bg: 'img/web/forma-d.jpg', ph: 'img/web/forma-today-m.jpg', card: 'img/web/mockups/card-forma.jpg?v=1104c', href: 'demo/forma/index.html?theme=light' },
   { id: 'dash', title: 'Дашборд владельца', text: 'Выручка, записи и клиенты барбершопа прямо в Telegram', c: '#111',
-    bg: 'img/web/royal-dash-d.jpg', ph: 'img/web/royal-dash-m.jpg', card: 'img/web/mockups/card-dash.jpg', href: 'demo/royal-crm/index.html?demo=1' }
+    bg: 'img/web/royal-dash-d.jpg', ph: 'img/web/royal-dash-m.jpg', card: 'img/web/mockups/card-dash.jpg?v=1104c', href: 'demo/royal-crm/index.html?demo=1' }
 ];
 
 /* «Где бизнес теряет клиентов»: шаги пути клиента, на каждом — потеря и наше решение */
 const WHAT = [
-  { t: '1. Нашли вас, но не поняли', items: ['Нет сайта или он устарел, цен и записи не видно', 'Человек уходит к тому, у кого всё понятно', 'Делаем сайт с ценами «от» и кнопкой записи'], art: { mock: 'img/web/mockups/royal-hand-site.jpg' } },
-  { t: '2. Написали, но ответа нет', items: ['Заявка висит до утра или теряется в чатах', 'Пока вы отвечаете, клиент уже записался к соседям', 'Бот отвечает сразу и записывает на свободное время'], art: { mock: 'img/web/mockups/what-v6-2.jpg' } },
-  { t: '3. Записались, но не пришли', items: ['Клиент забыл про визит, время пропало', 'Напоминаний нет, переносы ведутся вручную', 'Бот напоминает сам, клиент подтверждает в один клик'], art: { mock: 'img/web/mockups/what-v5-3.jpg' } },
-  { t: '4. Пришли один раз и пропали', items: ['Никто не позвал клиента снова', 'База есть, но не работает', 'Рассылки, бонусы и CRM возвращают постоянных клиентов'], art: { mock: 'img/web/mockups/what-v6-4.jpg' } }
+  { t: '1. Нашли вас, но не поняли', items: ['Нет сайта или он устарел, цен и записи не видно', 'Человек уходит к тому, у кого всё понятно', 'Делаем сайт с ценами «от» и кнопкой записи'], art: { mock: 'img/web/mockups/royal-hand-site.jpg?v=1104c' } },
+  { t: '2. Написали, но ответа нет', items: ['Заявка висит до утра или теряется в чатах', 'Пока вы отвечаете, клиент уже записался к соседям', 'Бот отвечает сразу и записывает на свободное время'], art: { mock: 'img/web/mockups/what-v6-2.jpg?v=1104c' } },
+  { t: '3. Записались, но не пришли', items: ['Клиент забыл про визит, время пропало', 'Напоминаний нет, переносы ведутся вручную', 'Бот напоминает сам, клиент подтверждает в один клик'], art: { mock: 'img/web/mockups/what-v5-3.jpg?v=1104c' } },
+  { t: '4. Пришли один раз и пропали', items: ['Никто не позвал клиента снова', 'База есть, но не работает', 'Рассылки, бонусы и CRM возвращают постоянных клиентов'], art: { mock: 'img/web/mockups/what-v6-4.jpg?v=1104c' } }
 ];
 
 /* что входит в каждую услугу: открывается по нажатию на папку */
@@ -1675,7 +1675,7 @@ const STAGE = { steps: ['Исследование', 'Обсуждение', 'П�
 const CASE = {
   rsm: { kind: 'Настоящий проект', nochart: true, tags: ['Мини-приложение', 'Каталог', 'Telegram'], h: 'Rsm Collection: магазин брендовых сумок в Telegram',
     lead: 'Мой собственный товарный бизнес. Покупатель смотрит каталог и пишет менеджеру, не выходя из Telegram.', did: 'сайт, мини-приложение и бот для живого магазина',
-    lap: 'img/web/mockups/rsm-laptop.jpg', ph: 'img/web/mockups/res-rsm.jpg', hero: 'img/web/mockups/rsm-phone.jpg', shot: 'img/web/mockups/rsm-phones-v3.jpg', tall: true, demo: 'https://t.me/RsmCollectionbot', demoLabel: 'Открыть в Telegram',
+    lap: 'img/web/mockups/rsm-laptop.jpg?v=1104c', ph: 'img/web/mockups/res-rsm.jpg?v=1104c', hero: 'img/web/mockups/rsm-phone.jpg?v=1104c', shot: 'img/web/mockups/rsm-phones-v3.jpg?v=1104c', tall: true, demo: 'https://t.me/RsmCollectionbot', demoLabel: 'Открыть в Telegram',
     before: ['Лоты теряются в ленте канала', 'Каждый вопрос в личку', 'Сложно найти нужный бренд'],
     after: ['Каталог с поиском и фильтрами', 'Избранное и заявка менеджеру', 'Раздел «Продать» для выкупа'],
     steps: ['Смотрим, как покупают', 'Определяем разделы', 'Собираем каталог', 'Мини-приложение и бот', 'Запускаем в канале'],
@@ -1684,8 +1684,8 @@ const CASE = {
     chart: { unit: ['просмотр', 'просмотра', 'просмотров'], vals: [3, 2, 4, 3, 5, 4, 6, 5, 4, 6, 7, 6] } },
   royal: { kind: 'Концепт-проект', tags: ['Сайт', 'Онлайн-запись', 'Бот'], h: 'The Royal Club: сайт и запись для барбершопа',
     lead: 'Показываем, как барбершоп перестаёт терять клиентов между звонком и креслом.', did: 'сайт, онлайн-запись, бот-напоминалка и кабинет владельца',
-    lap: 'img/web/mockups/royal-laptop.jpg', ph: 'img/web/mockups/res-royal.jpg', shot: 'img/web/mockups/after-royal.jpg', demo: 'demo/royal/index.html',
-    bot: [['img/web/mockups/royal-bot-hand.jpg', 'Выбирает время и сразу получает подтверждение']],
+    lap: 'img/web/mockups/royal-laptop.jpg?v=1104c', ph: 'img/web/mockups/res-royal.jpg?v=1104c', shot: 'img/web/mockups/after-royal.jpg?v=1104c', demo: 'demo/royal/index.html',
+    bot: [['img/web/mockups/royal-bot-hand.jpg?v=1104c', 'Выбирает время и сразу получает подтверждение']],
     before: ['Запись только по телефону', 'Клиенты забывают о визите', 'Записи и деньги в тетрадке'],
     after: ['Запись в 3 шага в любое время', 'Бот сам напоминает о визите', 'Выручка и записи в телефоне'],
     steps: ['Смотрим путь клиента до кресла', 'Решаем, что клиент делает сам', 'Собираем экран записи', 'Сайт, бот и кабинет', 'Подключаем и обучаем'],
@@ -1694,7 +1694,7 @@ const CASE = {
     chart: { unit: ['запись', 'записи', 'записей'], vals: [2, 3, 2, 4, 3, 5, 4, 6, 5, 7, 6, 8] } },
   strela: { kind: 'Концепт-проект', tags: ['CRM', 'Аналитика', 'ИИ-ассистент'], h: 'STRELA: CRM для грузоперевозок с голосовым ассистентом',
     lead: 'Машины, деньги и документы в одном окне вместо десятка таблиц.', did: 'CRM на 12 разделов, карта рейсов и голосовой ИИ-ассистент',
-    lap: 'img/web/mockups/strela-laptop-v3.jpg', ph: 'img/web/mockups/res-strela.jpg', shot: 'img/web/mockups/after-strela.jpg', demo: 'demo/strela/index.html',
+    lap: 'img/web/mockups/strela-laptop-v3.jpg?v=1104c', ph: 'img/web/mockups/res-strela.jpg?v=1104c', shot: 'img/web/mockups/after-strela.jpg?v=1104c', demo: 'demo/strela/index.html',
     before: ['Данные в разных таблицах', 'Просрочки всплывают поздно', 'Чтобы узнать цифру, надо звонить'],
     after: ['Вся компания на одном экране', 'Напоминания о документах', 'Спросил у ассистента голосом'],
     steps: ['Разбираем рейсы и деньги', 'Выбираем главные показатели', 'Собираем экран «Обзор»', 'Разделы, карта, ассистент', 'Переносим данные и обучаем'],
@@ -1703,7 +1703,7 @@ const CASE = {
     chart: { unit: ['рейс', 'рейса', 'рейсов'], vals: [3, 4, 3, 5, 6, 4, 7, 6, 8, 7, 9, 10] } },
   forma: { kind: 'Концепт-проект', tags: ['Мини-приложение', 'Бот', 'Аналитика'], h: 'Форма: приложение для фитнес-тренеров в Telegram',
     lead: 'Тренер видит, кому продлить абонемент, вместо того чтобы держать всё в голове.', did: 'мини-приложение, бот с напоминаниями и сервер',
-    lap: 'img/web/mockups/forma-laptop-v3.jpg', ph: 'img/web/mockups/res-forma.jpg', shot: 'img/web/mockups/after-forma.jpg', demo: 'demo/forma/index.html?theme=light',
+    lap: 'img/web/mockups/forma-laptop-v3.jpg?v=1104c', ph: 'img/web/mockups/res-forma.jpg?v=1104c', shot: 'img/web/mockups/after-forma.jpg?v=1104c', demo: 'demo/forma/index.html?theme=light',
     before: ['Клиент ходит по закончившемуся абонементу', 'Забывают продлить', 'Клиенты пропадают молча'],
     after: ['Экран «Сегодня»: кто придёт', 'Программы и прогресс по весам', 'Клиент отвечает боту «Приду»'],
     steps: ['Разбираем день тренера', 'Решаем, что считать автоматически', 'Собираем экран «Сегодня»', 'Приложение, бот, сервер', 'Проверяем автотестами'],
@@ -1712,7 +1712,7 @@ const CASE = {
     chart: { unit: ['тренировка', 'тренировки', 'тренировок'], vals: [1, 2, 2, 3, 2, 4, 3, 4, 5, 4, 6, 5] } },
   dash: { kind: 'Концепт-проект', tags: ['Дашборд', 'Мини-приложение', 'Аналитика'], h: 'Дашборд владельца: бизнес в телефоне',
     lead: 'Владелец барбершопа открывает Telegram и за минуту видит выручку, записи и клиентов.', did: 'мини-приложение с графиками и отчётами',
-    lap: 'img/web/mockups/dash-ipad-v3.jpg', ph: 'img/web/mockups/res-dash.jpg', shot: 'img/web/mockups/after-dash.jpg', tall: true, demo: 'demo/royal-crm/index.html?demo=1',
+    lap: 'img/web/mockups/dash-ipad-v3.jpg?v=1104c', ph: 'img/web/mockups/res-dash.jpg?v=1104c', shot: 'img/web/mockups/after-dash.jpg?v=1104c', tall: true, demo: 'demo/royal-crm/index.html?demo=1',
     before: ['Отчёт надо собирать вручную', 'Цифры видны только в салоне', 'Непонятно, что проседает'],
     after: ['Главные цифры на одном экране', 'Открывается прямо в Telegram', 'Сравнение с прошлым периодом'],
     steps: ['Выбираем важные цифры', 'Решаем, как их показать', 'Собираем экран «Обзор»', 'Графики и отчёты', 'Подключаем к записи'],
