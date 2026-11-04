@@ -1721,6 +1721,15 @@ const CASE = {
     chart: { unit: ['запись', 'записи', 'записей'], vals: [2, 4, 3, 5, 4, 3, 6, 5, 7, 6, 8, 7] } }
 };
 const casePage = $('#casePage');
+let casePending = [];
+function revealCase() {
+  if (!casePending.length) return;
+  const lim = innerHeight * 0.94;
+  casePending = casePending.filter(el => { const r = el.getBoundingClientRect(); if (r.top < lim) { el.classList.add('in'); return false; } return true; });
+}
+let revealTick = false;
+casePage.addEventListener('scroll', () => { if (!revealTick) { revealTick = true; requestAnimationFrame(() => { revealTick = false; revealCase(); }); } }, { passive: true });
+addEventListener('resize', revealCase);
 /* Бегущая линия этапов в кейсе: идёт за прокруткой, этапы загораются */
 let stepsState = null, stepsTick = false;
 function initCaseSteps() {
@@ -1794,7 +1803,9 @@ function renderCase(id) {
   <section class="cs-end"><div class="cs-in"><h2 class="blur">Хотите так же в своём бизнесе?</h2><p class="rv">Покажу на бесплатном аудите, где уходят заявки и что с этим сделать. Цена фиксируется до старта работ.</p>
     <div class="acts rv">${rollBtn('Получить бесплатный аудит', tg)}<button class="btn next" type="button" data-case="${next}">Следующий кейс: ${esc(nextT)} →</button></div></div></section>`;
   casePage.scrollTop = 0;
-  casePage.querySelectorAll('.rv, .blur, .fly, .flyup').forEach(el => io ? io.observe(el) : el.classList.add('in'));
+  /* у окна кейса своя прокрутка: проверяем видимость блоков сами при прокрутке — так появляются и нижние кнопки */
+  casePending = [...casePage.querySelectorAll('.rv, .blur, .fly, .flyup')];
+  requestAnimationFrame(revealCase); setTimeout(revealCase, 300); setTimeout(revealCase, 600);
   chartStop && chartStop();
   chartStop = c.nochart ? null : liveChart($('#csChart'), c.chart);
   initCaseSteps();
