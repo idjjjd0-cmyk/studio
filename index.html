@@ -256,10 +256,9 @@ dialog.sheet[open]::backdrop { background: rgba(10,10,10,.42); }
 .side { position: absolute; width: clamp(120px, 12vw, 180px); top: 26%; }
 .side.l { left: 2%; } .side.r { right: 2%; }
 .side .in-float { animation: float 8s ease-in-out infinite; }
-.side.l .in-float { --rot: 0deg; } .side.r .in-float { --rot: 0deg; animation-delay: -3s; }
-.side:has(.fmock) { width: clamp(140px, 12.5vw, 200px); top: 30%; }
-.side.l:has(.fmock) { left: 0.5%; } .side.r:has(.fmock) { right: 0.5%; }
-.side .fmock { display: block; width: 100%; filter: drop-shadow(0 30px 30px rgba(0,0,0,.18)); }
+.side.l .in-float { --rot: -7deg; } .side.r .in-float { --rot: 6deg; animation-delay: -3s; }
+.side:has(.fmock) { width: clamp(120px, 11vw, 175px); top: 26%; }
+.side .fmock { display: block; width: 100%; filter: drop-shadow(0 30px 40px rgba(0,0,0,.22)); }
 
 /* ---------- подвал ---------- */
 .foot-links { display: flex; flex-wrap: wrap; gap: 8px 26px; font-size: clamp(16px, 1.5vw, 21px); color: var(--sec); letter-spacing: -0.03em; }
@@ -1208,17 +1207,31 @@ $('#auditForm').addEventListener('submit', e => {
   openThanks(url);
 });
 /* экран «спасибо»: сначала окно, Telegram открывается по кнопке, иначе на телефоне он перекрывает окно */
-function openThanks(url) { $('#thanksGo').href = url; $('#thanks').hidden = false; $('#thanksGo').focus(); }
-/* все кнопки «Бесплатный аудит» (и в кейсах) тоже ведут через это окно */
+function openThanks(url) {
+  /* окно услуги открыто поверх всего — закрываем его, иначе «спасибо» окажется под ним */
+  if (sheet.open) { lastFolder = null; sheet.close(); }
+  $('#thanksGo').href = url; $('#thanks').hidden = false; $('#thanksGo').focus();
+}
+/* все ссылки в Telegram (кнопки аудита, контакты, кейсы) ведут через это окно */
 document.addEventListener('click', e => {
   const a = e.target.closest('a[href*="t.me/"]');
-  if (!a || a.id === 'thanksGo' || !/аудит/i.test(a.textContent)) return;
+  if (!a || a.id === 'thanksGo') return;
   e.preventDefault();
-  openThanks('https://t.me/' + BRAND.tg + '?text=' + encodeURIComponent('Здравствуйте! Хочу бесплатный аудит'));
+  const text = /аудит/i.test(a.textContent) ? 'Здравствуйте! Хочу бесплатный аудит' : 'Здравствуйте! Хочу обсудить проект';
+  openThanks('https://t.me/' + BRAND.tg + '?text=' + encodeURIComponent(text));
 });
 const closeThanks = () => { $('#thanks').hidden = true; };
 $('#thanksX').addEventListener('click', closeThanks);
-$('#thanksGo').addEventListener('click', () => setTimeout(closeThanks, 400));
+/* на телефоне открываем сразу приложение Telegram; если его нет — страницу t.me */
+$('#thanksGo').addEventListener('click', e => {
+  if (matchMedia('(pointer: coarse)').matches) {
+    e.preventDefault();
+    const web = $('#thanksGo').href, text = new URL(web).searchParams.get('text') || '';
+    location.href = 'tg://resolve?domain=' + BRAND.tg + (text ? '&text=' + encodeURIComponent(text) : '');
+    setTimeout(() => { if (!document.hidden) location.href = web; }, 1500);
+  }
+  setTimeout(closeThanks, 400);
+});
 $('#thanks').addEventListener('click', e => { if (e.target.id === 'thanks') closeThanks(); });
 addEventListener('keydown', e => { if (e.key === 'Escape' && !$('#thanks').hidden) closeThanks(); });
 /* липкая кнопка на телефоне: видна после первого экрана, прячется у формы и контактов */
