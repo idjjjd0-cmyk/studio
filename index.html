@@ -370,10 +370,10 @@ footer .word { font-weight: 400; font-size: clamp(60px, 16.8vw, 256px); }
 .ax-h1 .ch { display: inline-block; }
 .js .ax-h1 .ch { opacity: 0; filter: blur(12px); transform: translateY(0.55em) rotate(4deg); transition: opacity 700ms var(--ease-out), filter 900ms var(--ease-out), transform 900ms cubic-bezier(0.32, 0.72, 0, 1); transition-delay: calc(250ms + var(--i) * 18ms); }
 .js .ready .ax-h1 .ch { opacity: 1; filter: blur(0); transform: none; }
-.ax-l1.shine { background: linear-gradient(100deg, #8a8a8a 40%, #1a1a1a 50%, #8a8a8a 60%) 0 0 / 300% 100%; -webkit-background-clip: text; background-clip: text; animation: textShine 2.4s ease-in-out 1 forwards; }
-.ax-l1.shine .ch { color: transparent; }
+.ax-l1.shine .ch { animation: chShine 900ms ease-in-out 1 both; animation-delay: calc(var(--i) * 22ms); }
+@keyframes chShine { 0%, 100% { color: #8a8a8a; } 45% { color: #1a1a1a; } }
 @keyframes textShine { from { background-position: 100% 0; } to { background-position: 0 0; } }
-@media (prefers-reduced-motion: reduce) { .js .ax-h1 .ch { opacity: 1; filter: none; transform: none; } .ax-l1.shine { animation: none; } }
+@media (prefers-reduced-motion: reduce) { .js .ax-h1 .ch { opacity: 1; filter: none; transform: none; } .ax-l1.shine .ch { animation: none; } }
 /* общая шапка показывается только после первого экрана */
 .top.away { transform: translateY(-100%); }
 @media (max-width: 900px) {
@@ -1326,7 +1326,7 @@ const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
     n += 4; /* пауза между строками */
   });
   /* после появления по первой строке один раз проходит тёмный блик */
-  if (!reduce) setTimeout(() => document.querySelector('.ax-l1').classList.add('shine'), 40 + n * 6 + 350);
+  if (!reduce) setTimeout(() => document.querySelector('.ax-l1').classList.add('shine'), 40 + n * 9 + 760); /* только когда все буквы встали на место, иначе браузер на миг рисует их кучей слева */
 })();
 setTimeout(() => document.body.classList.add('ready'), 30);
 
