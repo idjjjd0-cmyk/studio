@@ -256,7 +256,10 @@ dialog.sheet[open]::backdrop { background: rgba(10,10,10,.42); }
 .side { position: absolute; width: clamp(120px, 12vw, 180px); top: 26%; }
 .side.l { left: 2%; } .side.r { right: 2%; }
 .side .in-float { animation: float 8s ease-in-out infinite; }
-.side.l .in-float { --rot: -7deg; } .side.r .in-float { --rot: 6deg; animation-delay: -3s; }
+.side.l .in-float { --rot: 0deg; } .side.r .in-float { --rot: 0deg; animation-delay: -3s; }
+.side:has(.fmock) { width: clamp(140px, 12.5vw, 200px); top: 30%; }
+.side.l:has(.fmock) { left: 0.5%; } .side.r:has(.fmock) { right: 0.5%; }
+.side .fmock { display: block; width: 100%; filter: drop-shadow(0 30px 30px rgba(0,0,0,.18)); }
 
 /* ---------- подвал ---------- */
 .foot-links { display: flex; flex-wrap: wrap; gap: 8px 26px; font-size: clamp(16px, 1.5vw, 21px); color: var(--sec); letter-spacing: -0.03em; }
@@ -905,8 +908,8 @@ html, body { max-width: 100%; overflow-x: clip; }
 </section>
 
 <section class="contact" id="contacts">
-  <div class="side l"><div class="in-float"><div class="phone"><img loading="lazy" decoding="async" src="img/web/royal-dash-m.jpg" alt="CRM владельца в тёмной теме: выручка и записи"></div></div></div>
-  <div class="side r"><div class="in-float"><div class="phone"><img loading="lazy" decoding="async" src="img/web/royal-site-m.jpg" alt="Сайт барбершопа The Royal Club на телефоне"></div></div></div>
+  <div class="side l"><div class="in-float"><img class="fmock" loading="lazy" decoding="async" src="img/web/mockups/float-crm.webp" alt="CRM владельца в тёмной теме: выручка и записи"></div></div>
+  <div class="side r"><div class="in-float"><img class="fmock" loading="lazy" decoding="async" src="img/web/mockups/float-site.webp" alt="Сайт барбершопа The Royal Club на телефоне"></div></div>
   <div class="wrap">
     <p class="bracket blur">[<b>КОНТАКТЫ</b>]</p>
     <h2 class="spread" id="spread">Напишите мне</h2>
@@ -1202,8 +1205,16 @@ $('#auditForm').addEventListener('submit', e => {
   sentAt = Date.now();
   const text = 'Здравствуйте! Хочу бесплатный аудит: ' + link;
   const url = 'https://t.me/' + BRAND.tg + '?text=' + encodeURIComponent(text);
-  /* сначала экран «спасибо», Telegram открывается по кнопке: на телефоне он иначе перекрывает окно */
-  $('#thanksGo').href = url; $('#thanks').hidden = false; $('#thanksGo').focus();
+  openThanks(url);
+});
+/* экран «спасибо»: сначала окно, Telegram открывается по кнопке, иначе на телефоне он перекрывает окно */
+function openThanks(url) { $('#thanksGo').href = url; $('#thanks').hidden = false; $('#thanksGo').focus(); }
+/* все кнопки «Бесплатный аудит» (и в кейсах) тоже ведут через это окно */
+document.addEventListener('click', e => {
+  const a = e.target.closest('a[href*="t.me/"]');
+  if (!a || a.id === 'thanksGo' || !/аудит/i.test(a.textContent)) return;
+  e.preventDefault();
+  openThanks('https://t.me/' + BRAND.tg + '?text=' + encodeURIComponent('Здравствуйте! Хочу бесплатный аудит'));
 });
 const closeThanks = () => { $('#thanks').hidden = true; };
 $('#thanksX').addEventListener('click', closeThanks);
